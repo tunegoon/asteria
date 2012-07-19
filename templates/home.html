@@ -1,1 +1,19 @@
-{{ content }}
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="containter">
+    <h1>List of Names</h1>
+    <ul>
+        {% for object in names %}
+            <li> {{object.first}} </li>
+        {% endfor %}
+    </ul>
+    <div class="row">
+    <form class="well" method="post" action=".">
+        {% csrf_token %}
+        <input type="text" id="first" name="first" size="20"
+            placeholder="enter name">
+    </form>
+    </div>
+    </div>
+{% endblock %}
